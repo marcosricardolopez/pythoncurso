@@ -1,0 +1,53 @@
+Ejercicios de Python - Funciones (Challenges)
+
+----------------------------------------
+CHALLENGE 1: Función simple
+----------------------------------------
+# Crea una función llamada saludar que reciba un nombre
+# y muestre: "Hola <nombre>"
+
+
+----------------------------------------
+CHALLENGE 2: Función que retorna valor
+----------------------------------------
+# Completa la función para que regrese la suma de dos números
+
+
+
+
+----------------------------------------
+CHALLENGE 3: Usar input + función
+----------------------------------------
+# Pide dos números al usuario y usa la función sumar
+
+
+
+----------------------------------------
+CHALLENGE 4: Función con validación
+----------------------------------------
+# Crear función que diga si un número es par o impar
+
+
+
+
+----------------------------------------
+CHALLENGE 5: Reutilizar función varias veces
+----------------------------------------
+# Usa la misma función varias veces con diferentes valores
+
+
+
+
+----------------------------------------
+CHALLENGE 6: Función con lógica
+----------------------------------------
+# Crear función que calcule bono basado en sueldo
+
+
+
+
+----------------------------------------
+CHALLENGE 7: Combinar funciones
+----------------------------------------
+# Usa varias funciones juntas
+
