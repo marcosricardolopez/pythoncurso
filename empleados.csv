@@ -1,0 +1,5 @@
+id,nombre,departamento,sueldo,activo
+1001,Ana,IT,45000,True
+1002,Luis,HR,32000,True
+1003,Pedro,Finance,28000,False
+1004,Marcos,IT,52000,True
