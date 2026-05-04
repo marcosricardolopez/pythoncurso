@@ -1,0 +1,51 @@
+Challenge
+
+Crear un programa que:
+
+1. Lea el CSV usando csv.DictReader()
+
+2. Use una función:
+calcular_valor_inventario(precio, stock)
+
+Debe regresar:
+precio * stock
+
+3. Mostrar solo productos activos
+
+4. Imprimir:
+Producto:
+Categoría:
+Precio:
+Stock:
+Valor inventario:
+
+5. Al final mostrar:
+Total productos activos:
+Valor total del inventario:
+Productos sin stock:
+
+Salida esperada
+Laptop - Electronica - Precio: 15000 - Stock: 8 - Valor: 120000
+Mouse - Electronica - Precio: 350 - Stock: 50 - Valor: 17500
+Silla - Oficina - Precio: 2200 - Stock: 12 - Valor: 26400
+Monitor - Electronica - Precio: 3800 - Stock: 15 - Valor: 57000
+Cafetera - Cocina - Precio: 1200 - Stock: 6 - Valor: 7200
+
+Total productos activos: 5
+Valor total del inventario: 228100
+Productos sin stock: 1
+
+Bonus
+
+Contar productos por categoría:
+
+Electronica: 3
+Oficina: 1
+Cocina: 1
+
+
+Tips
+import csv
+precio = float(fila["precio"])
+stock = int(fila["stock"])
+if fila["activo"] == "True":
