@@ -1,7 +1,0 @@
-id,producto,categoria,precio,stock,activo
-P001,Laptop,Electronica,15000,8,True
-P002,Mouse,Electronica,350,50,True
-P003,Silla,Oficina,2200,12,True
-P004,Escritorio,Oficina,4500,0,False
-P005,Monitor,Electronica,3800,15,True
-P006,Cafetera,Cocina,1200,6,True
