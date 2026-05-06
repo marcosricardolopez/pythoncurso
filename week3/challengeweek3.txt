@@ -1,0 +1,37 @@
+CHALLENGE: “Mini Sistema de Tienda”
+Objetivo
+
+Aprender a usar:
+
+clases 
+atributos 
+métodos 
+listas + for 
+
+ESCENARIO
+
+Vas a crear un sistema donde:
+
+hay productos
+hay un carrito
+puedes agregar productos y ver el total
+
+
+Crea una clase Producto con:
+
+nombre
+precio
+
+Agrega un método que muestre el producto
+
+Crea al menos 3 productos
+
+
+Mas avanzado:
+Crea una clase Carrito que tenga:
+
+una lista de productos
+Agrega un método para agregar productos al carrito
+Usa un for para mostrar los productos
+
+Crear método que sume precios y muestre el total
