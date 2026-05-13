@@ -1,0 +1,14 @@
+Challenge: Sistema de Inventario para la Tienda de Videojuegos
+
+Agregar una nueva tabla llamada inventario y crear lógica para saber si hay suficiente stock antes de registrar una venta.
+
+Objetivo
+
+El sistema debe:
+
+Crear una nueva tabla inventario
+Leer un CSV llamado inventario_videojuegos.csv
+Cargar el inventario a SQLite
+Validar si un producto tiene stock suficiente
+Descontar stock después de una venta
+Exportar un reporte CSV con productos con bajo inventario

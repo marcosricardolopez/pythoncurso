@@ -1,0 +1,22 @@
+[
+    {
+        "producto": "PlayStation 5",
+        "precio": 12000,
+        "cantidad": 2
+    },
+    {
+        "producto": "Nintendo Switch",
+        "precio": 7000,
+        "cantidad": 3
+    },
+    {
+        "producto": "Minecraft",
+        "precio": 600,
+        "cantidad": 10
+    },
+    {
+        "producto": "Mouse Gamer",
+        "precio": 800,
+        "cantidad": 5
+    }
+]

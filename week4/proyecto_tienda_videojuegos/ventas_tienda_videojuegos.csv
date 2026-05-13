@@ -1,0 +1,101 @@
+id_venta,fecha_venta,nombre_cliente,ciudad,producto,categoria,cantidad,precio_unitario,metodo_pago,total
+1,2026-01-04,Mateo,Monterrey,Nintendo Switch,Consolas,1,6999,Efectivo,6999
+2,2026-03-28,Diego,Ciudad Juárez,Mouse Gamer,Accesorios,1,799,Transferencia,799
+3,2026-01-04,Alex,Monterrey,EA FC 26,Juegos,1,1299,Efectivo,1299
+4,2026-03-13,Sofía,Guadalajara,Mario Kart,Juegos,1,1199,Efectivo,1199
+5,2026-01-01,Sofía,Guadalajara,EA FC 26,Juegos,3,1299,Tarjeta,3897
+6,2026-01-28,Mateo,Ciudad Juárez,Minecraft,Juegos,2,599,Efectivo,1198
+7,2026-02-15,Mateo,CDMX,EA FC 26,Juegos,1,1299,Efectivo,1299
+8,2026-03-10,Alex,Guadalajara,Nintendo Switch,Consolas,4,6999,Efectivo,27996
+9,2026-03-22,Diego,CDMX,Mario Kart,Juegos,3,1199,Transferencia,3597
+10,2026-01-06,Sofía,CDMX,Mouse Gamer,Accesorios,1,799,Efectivo,799
+11,2026-01-13,Valeria,CDMX,PlayStation 5,Consolas,2,11999,Tarjeta,23998
+12,2026-01-21,Mateo,CDMX,Nintendo Switch,Consolas,3,6999,Efectivo,20997
+13,2026-03-31,Alex,Monterrey,Nintendo Switch,Consolas,3,6999,Transferencia,20997
+14,2026-01-21,Valeria,Guadalajara,Nintendo Switch,Consolas,2,6999,Tarjeta,13998
+15,2026-03-29,Mateo,Ciudad Juárez,Nintendo Switch,Consolas,2,6999,Efectivo,13998
+16,2026-02-10,Valeria,CDMX,PlayStation 5,Consolas,1,11999,Efectivo,11999
+17,2026-01-28,Valeria,Guadalajara,Mouse Gamer,Accesorios,3,799,Transferencia,2397
+18,2026-02-03,Sofía,Monterrey,EA FC 26,Juegos,2,1299,Transferencia,2598
+19,2026-03-16,Valeria,Guadalajara,Mario Kart,Juegos,3,1199,Tarjeta,3597
+20,2026-03-07,Valeria,Ciudad Juárez,Mouse Gamer,Accesorios,2,799,Efectivo,1598
+21,2026-01-20,Sofía,Guadalajara,PlayStation 5,Consolas,1,11999,Transferencia,11999
+22,2026-02-18,Diego,Guadalajara,Control PS5,Accesorios,4,1299,Transferencia,5196
+23,2026-03-29,Alex,CDMX,Minecraft,Juegos,1,599,Transferencia,599
+24,2026-02-07,Valeria,Monterrey,Minecraft,Juegos,1,599,Tarjeta,599
+25,2026-03-06,Sofía,Ciudad Juárez,Control PS5,Accesorios,3,1299,Transferencia,3897
+26,2026-01-20,Mateo,Monterrey,Minecraft,Juegos,2,599,Transferencia,1198
+27,2026-03-18,Mateo,Guadalajara,PlayStation 5,Consolas,1,11999,Efectivo,11999
+28,2026-02-09,Sofía,Ciudad Juárez,Control PS5,Accesorios,3,1299,Efectivo,3897
+29,2026-01-11,Valeria,Ciudad Juárez,Mario Kart,Juegos,1,1199,Transferencia,1199
+30,2026-01-17,Valeria,Monterrey,PlayStation 5,Consolas,2,11999,Tarjeta,23998
+31,2026-01-28,Diego,Monterrey,Mario Kart,Juegos,4,1199,Transferencia,4796
+32,2026-03-27,Mateo,Guadalajara,Minecraft,Juegos,4,599,Transferencia,2396
+33,2026-02-01,Sofía,Ciudad Juárez,EA FC 26,Juegos,1,1299,Tarjeta,1299
+34,2026-03-17,Sofía,Ciudad Juárez,Control PS5,Accesorios,2,1299,Efectivo,2598
+35,2026-01-30,Alex,Ciudad Juárez,Nintendo Switch,Consolas,1,6999,Tarjeta,6999
+36,2026-02-05,Valeria,Monterrey,Control PS5,Accesorios,2,1299,Transferencia,2598
+37,2026-02-01,Valeria,Guadalajara,Mouse Gamer,Accesorios,4,799,Efectivo,3196
+38,2026-03-26,Valeria,CDMX,Control PS5,Accesorios,1,1299,Tarjeta,1299
+39,2026-01-07,Alex,Ciudad Juárez,EA FC 26,Juegos,4,1299,Tarjeta,5196
+40,2026-01-14,Sofía,Monterrey,Nintendo Switch,Consolas,3,6999,Efectivo,20997
+41,2026-01-18,Valeria,Monterrey,Mario Kart,Juegos,4,1199,Tarjeta,4796
+42,2026-01-10,Valeria,Ciudad Juárez,EA FC 26,Juegos,2,1299,Efectivo,2598
+43,2026-01-12,Sofía,Monterrey,Nintendo Switch,Consolas,1,6999,Tarjeta,6999
+44,2026-01-28,Valeria,Ciudad Juárez,EA FC 26,Juegos,4,1299,Efectivo,5196
+45,2026-02-19,Mateo,Guadalajara,EA FC 26,Juegos,1,1299,Tarjeta,1299
+46,2026-01-20,Sofía,CDMX,EA FC 26,Juegos,4,1299,Efectivo,5196
+47,2026-02-10,Alex,Ciudad Juárez,Control PS5,Accesorios,1,1299,Transferencia,1299
+48,2026-01-08,Diego,Ciudad Juárez,EA FC 26,Juegos,2,1299,Efectivo,2598
+49,2026-03-28,Sofía,Guadalajara,Control PS5,Accesorios,1,1299,Efectivo,1299
+50,2026-03-16,Diego,Ciudad Juárez,Mario Kart,Juegos,2,1199,Transferencia,2398
+51,2026-03-26,Diego,CDMX,Control PS5,Accesorios,4,1299,Tarjeta,5196
+52,2026-01-31,Mateo,Guadalajara,Mouse Gamer,Accesorios,3,799,Efectivo,2397
+53,2026-02-28,Mateo,Ciudad Juárez,Nintendo Switch,Consolas,3,6999,Efectivo,20997
+54,2026-01-10,Diego,Monterrey,EA FC 26,Juegos,1,1299,Transferencia,1299
+55,2026-02-14,Alex,Monterrey,Minecraft,Juegos,2,599,Tarjeta,1198
+56,2026-02-26,Diego,CDMX,Minecraft,Juegos,2,599,Transferencia,1198
+57,2026-03-27,Diego,CDMX,PlayStation 5,Consolas,1,11999,Transferencia,11999
+58,2026-02-03,Alex,Ciudad Juárez,Control PS5,Accesorios,2,1299,Transferencia,2598
+59,2026-02-04,Mateo,Monterrey,Mario Kart,Juegos,2,1199,Transferencia,2398
+60,2026-03-29,Mateo,Guadalajara,Minecraft,Juegos,2,599,Tarjeta,1198
+61,2026-01-12,Valeria,CDMX,PlayStation 5,Consolas,1,11999,Efectivo,11999
+62,2026-01-17,Mateo,Monterrey,Control PS5,Accesorios,3,1299,Transferencia,3897
+63,2026-03-13,Alex,Ciudad Juárez,EA FC 26,Juegos,4,1299,Efectivo,5196
+64,2026-03-11,Alex,CDMX,Nintendo Switch,Consolas,2,6999,Transferencia,13998
+65,2026-02-25,Sofía,Ciudad Juárez,Mario Kart,Juegos,2,1199,Tarjeta,2398
+66,2026-02-15,Sofía,Monterrey,Minecraft,Juegos,1,599,Transferencia,599
+67,2026-03-13,Valeria,Monterrey,Control PS5,Accesorios,3,1299,Efectivo,3897
+68,2026-01-23,Valeria,Ciudad Juárez,PlayStation 5,Consolas,2,11999,Efectivo,23998
+69,2026-02-22,Sofía,CDMX,Nintendo Switch,Consolas,3,6999,Efectivo,20997
+70,2026-02-18,Alex,Guadalajara,PlayStation 5,Consolas,1,11999,Efectivo,11999
+71,2026-02-14,Mateo,Monterrey,Mouse Gamer,Accesorios,4,799,Efectivo,3196
+72,2026-02-21,Mateo,CDMX,Control PS5,Accesorios,2,1299,Efectivo,2598
+73,2026-02-14,Diego,Guadalajara,PlayStation 5,Consolas,3,11999,Transferencia,35997
+74,2026-01-04,Alex,CDMX,PlayStation 5,Consolas,3,11999,Efectivo,35997
+75,2026-01-05,Alex,Guadalajara,Mario Kart,Juegos,3,1199,Tarjeta,3597
+76,2026-02-25,Diego,Ciudad Juárez,Nintendo Switch,Consolas,3,6999,Tarjeta,20997
+77,2026-02-02,Alex,Guadalajara,Mario Kart,Juegos,2,1199,Efectivo,2398
+78,2026-02-16,Valeria,Ciudad Juárez,Mario Kart,Juegos,2,1199,Transferencia,2398
+79,2026-03-26,Alex,CDMX,Minecraft,Juegos,3,599,Transferencia,1797
+80,2026-02-11,Valeria,CDMX,Minecraft,Juegos,4,599,Transferencia,2396
+81,2026-02-23,Valeria,Monterrey,Mouse Gamer,Accesorios,2,799,Transferencia,1598
+82,2026-02-21,Diego,Ciudad Juárez,Mario Kart,Juegos,3,1199,Tarjeta,3597
+83,2026-02-25,Diego,CDMX,Minecraft,Juegos,2,599,Tarjeta,1198
+84,2026-03-28,Sofía,Guadalajara,EA FC 26,Juegos,4,1299,Transferencia,5196
+85,2026-02-06,Diego,CDMX,Mouse Gamer,Accesorios,1,799,Efectivo,799
+86,2026-03-28,Mateo,Monterrey,PlayStation 5,Consolas,2,11999,Efectivo,23998
+87,2026-01-06,Sofía,Guadalajara,Mouse Gamer,Accesorios,1,799,Transferencia,799
+88,2026-02-28,Valeria,Monterrey,PlayStation 5,Consolas,1,11999,Transferencia,11999
+89,2026-03-05,Valeria,Monterrey,Nintendo Switch,Consolas,4,6999,Efectivo,27996
+90,2026-01-14,Valeria,Monterrey,Nintendo Switch,Consolas,1,6999,Efectivo,6999
+91,2026-01-07,Diego,Monterrey,PlayStation 5,Consolas,4,11999,Efectivo,47996
+92,2026-03-01,Diego,CDMX,EA FC 26,Juegos,2,1299,Tarjeta,2598
+93,2026-03-12,Valeria,Monterrey,Mario Kart,Juegos,4,1199,Transferencia,4796
+94,2026-02-27,Mateo,Monterrey,PlayStation 5,Consolas,4,11999,Transferencia,47996
+95,2026-03-22,Sofía,CDMX,Minecraft,Juegos,4,599,Tarjeta,2396
+96,2026-01-31,Mateo,CDMX,Control PS5,Accesorios,3,1299,Tarjeta,3897
+97,2026-01-18,Sofía,Monterrey,Mario Kart,Juegos,1,1199,Tarjeta,1199
+98,2026-04-01,Sofía,Ciudad Juárez,Nintendo Switch,Consolas,2,6999,Tarjeta,13998
+99,2026-03-11,Valeria,Guadalajara,EA FC 26,Juegos,3,1299,Efectivo,3897
+100,2026-02-19,Diego,Ciudad Juárez,Mouse Gamer,Accesorios,4,799,Transferencia,3196
