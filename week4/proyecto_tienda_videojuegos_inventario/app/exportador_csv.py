@@ -1,4 +1,3 @@
-
 import pandas as pd
 
 
@@ -32,7 +31,7 @@ class ExportadorCSV:
                    ROUND(SUM(total),2) AS ingresos
             FROM ventas
             GROUP BY producto
-            ORDER BY ingresos DESC
+            ORDER BY total_vendido DESC
             """
 
             df = pd.read_sql_query(query, conexion)

@@ -45,9 +45,9 @@ print("\nLISTA DE VIDEOJUEGOS")
 for juego in datos:
     print(juego)
 
-#cursor.execute("""
-#DROP TABLE IF EXISTS videojuegos
-#""")
+cursor.execute("""
+DROP TABLE IF EXISTS videojuegos
+""")
 
 # Cerrar conexión
 conexion.close()
