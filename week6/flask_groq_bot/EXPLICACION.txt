@@ -1,0 +1,233 @@
+================================================================================
+  CÓMO FUNCIONA TU BOT (explicación simple)
+================================================================================
+
+Imagina DOS programas trabajando juntos:
+
+  1. El navegador (Chrome, Firefox...) — muestra la pantalla del chat y lo que
+     escribes.
+
+  2. Flask (app.py) — es un servidor en tu PC: recibe mensajes, habla con Groq
+     (la IA) y devuelve la respuesta.
+
+No es magia: es como cuando en Python llamas a una función en otro archivo,
+pero aquí la "llamada" va por internet entre el navegador y tu PC.
+
+
+--------------------------------------------------------------------------------
+LA PELÍCULA COMPLETA (en orden)
+--------------------------------------------------------------------------------
+
+  Tú escribes
+    -> JavaScript en el navegador
+    -> POST /chat
+    -> app.py
+    -> API Groq
+    -> respuesta
+    -> vuelve al chat
+
+  1. Escribes en el cuadro de texto y pulsas Enviar.
+  2. JavaScript (dentro de index.html) envía tu mensaje a Flask.
+  3. Flask llama a preguntar_a_groq() y esa función le pregunta a Groq.
+  4. Groq responde; Flask la devuelve en JSON.
+  5. JavaScript pinta la respuesta como una burbuja más en el chat.
+
+
+================================================================================
+  app.py — EL CEREBRO EN PYTHON
+================================================================================
+
+ARRANQUE Y SECRETOS
+-------------------
+
+  load_dotenv(".env")
+  GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
+  - El archivo .env guarda cosas secretas (como la API key). No las subes a
+    GitHub.
+  - load_dotenv las carga como variables de entorno.
+  - os.getenv("GROQ_API_KEY") es como leer una variable de entorno: la
+    contraseña para usar Groq.
+
+
+FLASK = "RECEPCIONISTA" CON DOS PUERTAS
+---------------------------------------
+
+  app = Flask(__name__)
+
+  Flask es una librería que escucha peticiones HTTP. Piensa en HTTP como un
+  formato estándar de mensajes en la web: "dame esta página" o "envía estos
+  datos".
+
+
+  Puerta 1: la página principal
+
+    @app.route("/")
+    def index():
+        return render_template("index.html")
+
+  - Si abres http://127.0.0.1:5000/, el navegador pide la ruta "/".
+  - Flask ejecuta index() y devuelve el HTML de templates/index.html.
+  - render_template es como open("index.html").read() pero con extras (por
+    ejemplo url_for para el CSS).
+
+
+  Puerta 2: el chat (solo cuando envías mensaje)
+
+    @app.route("/chat", methods=["POST"])
+    def chat():
+        data = request.get_json() or {}
+        ...
+        respuesta = preguntar_a_groq(pregunta, historial)
+        return jsonify({"response": respuesta})
+
+  - methods=["POST"] significa: esta ruta NO es para "entrar a ver la página",
+    sino para ENVIAR datos (como un formulario).
+  - request.get_json() lee un diccionario que mandó el navegador, por ejemplo:
+
+      {"message": "¿Qué es una lista?", "history": [...]}
+
+  - jsonify(...) devuelve un dict como JSON, por ejemplo:
+
+      {"response": "Una lista es..."}
+
+  En Python puro sería parecido a:
+
+    def chat(datos):
+        pregunta = datos["message"]
+        return {"response": preguntar_a_groq(pregunta)}
+
+  Flask solo hace que eso llegue por HTTP en lugar de llamar la función a mano.
+
+
+preguntar_a_groq() — HABLAR CON LA IA DE OTRO SITIO
+---------------------------------------------------
+
+  Groq espera una LISTA de mensajes, como un chat:
+
+    role          | Quién es
+    --------------|------------------------------------------
+    system        | Instrucciones ("eres profesor...")
+    user          | Lo que escribes tú
+    assistant     | Respuestas anteriores del bot
+
+  - historial son mensajes viejos para que la IA recuerde el contexto.
+  - requests.post(..., json=data) es como urllib o requests: tu PC llama a
+    la API de Groq (otro servidor en internet).
+  - La respuesta viene anidada:
+    resultado["choices"][0]["message"]["content"]
+    — es el texto que muestra el bot.
+
+
+if __name__ == "__main__"
+-------------------------
+
+  if __name__ == "__main__":
+      app.run(debug=True)
+
+  Si ejecutas "python app.py", arranca el servidor en 127.0.0.1:5000.
+  debug=True recarga el código al guardar (útil al desarrollar; en producción
+  se apaga).
+
+
+================================================================================
+  index.html — LA CARA DEL CHAT
+================================================================================
+
+Tiene TRES lenguajes en un solo archivo (normal en web):
+
+    Parte       | Para qué sirve
+    ------------|---------------------------------------------
+    HTML        | Estructura: cajas, título, input, botón
+    CSS         | Colores, burbujas, diseño (style.css)
+    JavaScript  | Comportamiento: enviar, mostrar mensajes
+
+
+HTML = ESQUELETO
+----------------
+
+  - #chat-box: zona donde aparecen los mensajes.
+  - #message: donde escribes.
+  - El <form>: al enviar, JavaScript intercepta el evento (no recarga toda la
+    página).
+
+  {{ url_for('static', filename='style.css') }} es Jinja (plantillas de Flask):
+  genera la URL correcta del CSS, por ejemplo /static/style.css.
+
+
+JAVASCRIPT = LÓGICA EN EL NAVEGADOR
+-----------------------------------
+
+  Piensa en JS como Python en el navegador, con sintaxis distinta:
+
+    Python              | JavaScript (aprox.)
+    --------------------|-------------------------
+    lista = []          | const history = []
+    def f(x):           | function f(x) { }
+    lista.append(x)     | history.push(x)
+
+  appendMessage(text, role)
+    Crea un <div>, le pone clase "message user" o "message bot", escribe el
+    texto y lo añade al chat. Es como hacer print() pero en pantalla.
+
+  history
+    Lista en el navegador con turnos anteriores. Cada vez que respondes el bot:
+
+      history.push({ role: "user", content: text });
+      history.push({ role: "assistant", content: reply });
+
+    Eso se manda a Flask en el siguiente mensaje para que Groq tenga contexto.
+
+  fetch("/chat", { method: "POST", ... })
+    Es la parte "web" importante:
+    - El navegador PIDE a tu mismo Flask (misma máquina, puerto 5000).
+    - body: JSON.stringify({ message: text, history: history }) convierte un
+      objeto a texto JSON (como json.dumps en Python).
+    - await espera la respuesta sin bloquear la página (async/await).
+    - response.json() parsea la respuesta (como json.loads).
+
+  e.preventDefault()
+    Sin esto, el formulario recargaría la página entera. Queremos chat fluido,
+    sin recargar.
+
+
+================================================================================
+  style.css — SOLO DECORACIÓN
+================================================================================
+
+  No ejecuta lógica. Define cómo se ven las burbujas (usuario a la derecha en
+  azul, bot a la izquierda en gris). Si lo quitas, el chat sigue funcionando,
+  pero feo.
+
+
+================================================================================
+  CONCEPTOS WEB QUE CONVIENE TENER CLAROS
+================================================================================
+
+CLIENTE VS SERVIDOR
+  - Cliente = navegador (HTML + JS).
+  - Servidor = Flask en tu PC (app.py).
+  - La API de Groq es otro servidor más; Flask le habla por ti para no exponer
+    la API key en el navegador.
+
+GET VS POST
+  - GET "/"  -> "dame la página".
+  - POST "/chat" -> "aquí van datos, procésalos y respóndeme".
+
+JSON
+  Formato de intercambio de datos (dict/list en texto). Python y JavaScript
+  lo entienden bien.
+
+¿POR QUÉ LA KEY ESTÁ EN app.py Y NO EN EL HTML?
+  Si pusieras GROQ_API_KEY en JavaScript, cualquiera que abra "Ver código
+  fuente" o las herramientas del navegador podría robarla. Por eso el navegador
+  solo habla con TU Flask, y Flask habla con Groq.
+
+
+================================================================================
+  RESUMEN EN UNA FRASE
+================================================================================
+
+  El HTML/JS es la interfaz del chat; Flask es el intermediario en Python que
+  recibe mensajes, llama a Groq con requests, y devuelve la respuesta para que
+  la veas en pantalla.

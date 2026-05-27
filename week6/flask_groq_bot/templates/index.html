@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot AI con Flask y Groq</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <h1>Mi Bot AI</h1>
+            <p class="subtitle">Profesor de Python — pregunta lo que quieras</p>
+
+            <div id="chat-box" class="chat-box" aria-live="polite">
+                <div class="message bot">¡Hola! Soy tu asistente de codificacion. ¿En qué te ayudo?</div>
+            </div>
+
+            <form id="chat-form" class="chat-form">
+                <input
+                    type="text"
+                    id="message"
+                    placeholder="Escribe tu mensaje..."
+                    autocomplete="off"
+                    required
+                >
+                <button type="submit" id="send-btn">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const chatBox = document.getElementById("chat-box");
+        const chatForm = document.getElementById("chat-form");
+        const messageInput = document.getElementById("message");
+        const sendBtn = document.getElementById("send-btn");
+
+        const history = [];
+
+        function appendMessage(text, role) {
+            const el = document.createElement("div");
+            el.className = "message " + role;
+            el.textContent = text;
+            chatBox.appendChild(el);
+            chatBox.scrollTop = chatBox.scrollHeight;
+            return el;
+        }
+
+        chatForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const text = messageInput.value.trim();
+            if (!text) return;
+
+            appendMessage(text, "user");
+            messageInput.value = "";
+            sendBtn.disabled = true;
+
+            const thinking = appendMessage("Pensando...", "bot");
+            thinking.classList.add("thinking");
+
+            try {
+                const response = await fetch("/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        message: text,
+                        history: history
+                    })
+                });
+
+                const data = await response.json();
+                thinking.remove();
+
+                const reply =
+                    data.response ||
+                    data.error ||
+                    "No hubo respuesta del servidor.";
+
+                appendMessage(reply, data.error ? "error" : "bot");
+
+                history.push({ role: "user", content: text });
+                history.push({ role: "assistant", content: reply });
+
+            } catch (err) {
+                thinking.remove();
+                appendMessage("Error conectando con Flask.", "error");
+                console.error(err);
+            } finally {
+                sendBtn.disabled = false;
+                messageInput.focus();
+            }
+        });
+
+        messageInput.focus();
+    </script>
+
+</body>
+</html>
